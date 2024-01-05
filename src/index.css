@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.input-box {
+      @apply px-2 py-1 border-b focus:border-b-2 border-slate-400 bg-slate-50;
+}
+
+.button {
+      @apply px-4 py-2 bg-slate-200;
+}
