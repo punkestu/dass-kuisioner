@@ -5,6 +5,7 @@ import BioPage from "./page/Bio";
 import SurveiPage from "./page/Survei";
 import Diagnosis from "./model/diagnosis";
 import DiagnosisPage from "./page/Diagnosis";
+import SplashPage from "./page/Splash";
 
 function App() {
   const [bio, setBio] = useState<Bio>({
@@ -19,6 +20,7 @@ function App() {
     <BioContext.Provider value={[bio, setBio]}>
       <ViewContext.Provider value={[view, setView]}>
         <DiagnosisContext.Provider value={[diagnosis, setDiagnosis]}>
+          <SplashPage />
           <SwitchView view={view} />
         </DiagnosisContext.Provider>
       </ViewContext.Provider>
