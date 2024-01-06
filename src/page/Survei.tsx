@@ -7,7 +7,7 @@ import Swal from "../provider/swal";
 
 function Jawaban(opt: { label: string, value: number, active: number, updateJawaban: (value: number) => void }) {
       return (
-            <label className={`w-full p-2 border-2 bg-slate-100 ${opt.active === opt.value ? "border-blue-500" : "border-slate-100"}`} htmlFor={`jawaban${opt.value}`}>
+            <label className={`w-full p-2 border-2 rounded-lg text-center ${opt.active === opt.value ? "border-blue-500 bg-blue-400 text-white" : "border-slate-100 bg-slate-100"}`} htmlFor={`jawaban${opt.value}`}>
                   <input className="hidden" type="radio" name="jawaban" id={`jawaban${opt.value}`} value={`${opt.value}`} onClick={() => {
                         opt.updateJawaban(opt.value);
                   }} />
@@ -81,13 +81,13 @@ export default function SurveiPage() {
       }
 
       return (
-            <main className="h-screen flex flex-col p-4 justify-between overflow-y-scroll">
+            <main className="h-screen flex flex-col p-8 justify-between overflow-y-scroll">
                   <h1 className="font-bold text-xl mb-2 self-end">{nomor}/21</h1>
                   <form className="flex flex-col">
                         <div>
-                              <p className="font-medium mb-2 text-center">{listSoal[nomor - 1].soal}</p>
+                              <p className="font-medium text-lg mb-2 text-center">{listSoal[nomor - 1].soal}</p>
                         </div>
-                        <div className="flex flex-col gap-1 w-full">
+                        <div className="flex flex-col gap-2 w-full">
                               <Jawaban value={0} label="Tidak pernah" active={active} updateJawaban={updateJawaban} />
                               <Jawaban value={1} label="Kadang-kadang" active={active} updateJawaban={updateJawaban} />
                               <Jawaban value={2} label="Lumayan sering" active={active} updateJawaban={updateJawaban} />

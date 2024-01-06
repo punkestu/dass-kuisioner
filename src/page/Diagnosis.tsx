@@ -80,25 +80,25 @@ export default function DiagnosisPage() {
             setView("bio");
       }
       return (
-            <main className="h-screen p-4 flex flex-col gap-4">
+            <main className="h-screen p-8 flex flex-col gap-4">
                   <h1 className="text-center font-bold text-xl">Hasil Tes</h1>
                   <table className="w-full">
                         <tr>
-                              <td className="w-1/2 border text-start p-1 capitalize">Nama</td>
+                              <td className="w-1/3 font-bold border text-start p-1 capitalize">Nama</td>
                               <td className="border text-center p-1 capitalize">{bio.nama}</td>
                         </tr>
                         <tr>
-                              <td className="border text-start p-1 capitalize">Umur</td>
+                              <td className="font-bold border text-start p-1 capitalize">Umur</td>
                               <td className="border text-center p-1 capitalize">{bio.umur} tahun</td>
                         </tr>
                         <tr>
-                              <td className="border text-start p-1 capitalize">Jenis Kelamin</td>
+                              <td className="font-bold border text-start p-1 capitalize">Jenis Kelamin</td>
                               <td className="border text-center p-1 capitalize">{bio.gender === Gender.Male ? "Laki-laki" : "Perempuan"}</td>
                         </tr>
                   </table>
                   <table className="w-full">
                         <tr>
-                              <th className="border text-start p-1 capitalize">Kondisi</th>
+                              <th className="w-1/3 border text-start p-1 capitalize">Kondisi</th>
                               <th className="border text-center p-1 capitalize">Klasifikasi</th>
                         </tr>
                         <tr>
