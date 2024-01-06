@@ -19,7 +19,7 @@ function Jawaban(opt: { label: string, value: number, active: number, updateJawa
 export default function SurveiPage() {
       const [diagnosis, setDiagnosis] = useContext(DiagnosisContext);
       const setView = useContext(ViewContext)[1];
-      const [listSoal, setListSoal] = useState<Survei[]>(ListSoal.map(soal => ({ ...soal, jawaban: 0 })));
+      const [listSoal, setListSoal] = useState<Survei[]>(ListSoal.map(soal => ({ ...soal, jawaban: -1 })));
       const [nomor, setNomor] = useState(1);
       const [active, setActive] = useState(listSoal[nomor - 1].jawaban);
 
