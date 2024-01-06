@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { BioContext, ViewContext } from "../provider";
 import { Gender } from "../model/bio";
+import Swal from "../provider/swal";
 
 export default function BioPage() {
       const [bio, setBio] = useContext(BioContext);
@@ -20,6 +21,12 @@ export default function BioPage() {
       const nextView = () => {
             if (bio.nama.length > 0 && bio.umur > 0) {
                   setView("soal");
+            }else{
+                  Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Ada data yang belum diisi",
+                  });
             }
       }
       return (

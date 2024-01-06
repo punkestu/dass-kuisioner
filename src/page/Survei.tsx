@@ -3,6 +3,7 @@ import ListSoal from "../assets/soal.json";
 import Kunci from "../assets/kunci.json";
 import { useContext, useState } from "react";
 import { DiagnosisContext, ViewContext } from "../provider";
+import Swal from "../provider/swal";
 
 function Jawaban(opt: { label: string, value: number, active: number, updateJawaban: (value: number) => void }) {
       return (
@@ -18,7 +19,7 @@ function Jawaban(opt: { label: string, value: number, active: number, updateJawa
 export default function SurveiPage() {
       const [diagnosis, setDiagnosis] = useContext(DiagnosisContext);
       const setView = useContext(ViewContext)[1];
-      const [listSoal, setListSoal] = useState<Survei[]>(ListSoal.map(soal => ({ ...soal, jawaban: -1 })));
+      const [listSoal, setListSoal] = useState<Survei[]>(ListSoal.map(soal => ({ ...soal, jawaban: 0 })));
       const [nomor, setNomor] = useState(1);
       const [active, setActive] = useState(listSoal[nomor - 1].jawaban);
 
@@ -53,9 +54,24 @@ export default function SurveiPage() {
                         return acc
                   }, true);
                   if (finish) {
-                        setView("diagnosis");
+                        Swal.fire({
+                              icon: "info",
+                              title: "Okey...",
+                              text: "Anda yakin ingin melanjutkan?",
+                              showCancelButton: true
+                        }).then((result) => {
+                              if (result.isConfirmed) {
+                                    setView("diagnosis");
+                              } else if (result.isDenied) {
+                                    return;
+                              }
+                        });
                   } else {
-                        console.log("ada soal yang belum dijawab");
+                        Swal.fire({
+                              icon: "error",
+                              title: "Oops...",
+                              text: "Ada soal yang belum dijawab"
+                        })
                   }
             }
       }
