@@ -6,6 +6,7 @@ import SurveiPage from "./page/Survei";
 import Diagnosis from "./model/diagnosis";
 import DiagnosisPage from "./page/Diagnosis";
 import SplashPage from "./page/Splash";
+import VideoPage from "./page/Video";
 
 function App() {
   const [bio, setBio] = useState<Bio>({
@@ -36,6 +37,8 @@ function SwitchView(opt: { view: string }) {
       return <SurveiPage />
     case "diagnosis":
       return <DiagnosisPage />
+    case "video":
+      return <VideoPage />
     default:
       break;
   }

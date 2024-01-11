@@ -147,6 +147,7 @@ export default function DiagnosisPage() {
                         </tr>
                   </table>
                   <button type="button" className="button" onClick={tesUlang}>Tes ulang &raquo;</button>
+                  <button type="button" className="button" onClick={() => setView("video")}>Lihat rekomendasi video</button>
             </main>
       )
 }
