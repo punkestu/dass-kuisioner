@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import Videos from "../assets/video";
 import { ViewContext } from "../provider";
+import Slider from "../components/Slider";
 
 export default function VideoPage() {
       const setView = useContext(ViewContext)[1];
@@ -18,9 +19,9 @@ export default function VideoPage() {
                               })
                         }
                   </section>
-                  <div className="sticky bottom-0 w-full bg-white flex justify-center items-center gap-4 p-8 pt-4">
-                        <button className="button w-full" onClick={()=>setView("diagnosis")}>&laquo; Back</button>
-                  </div>
+                  <Slider>
+                        <button className="button w-full" onClick={() => setView("diagnosis")}>&laquo; Back</button>
+                  </Slider>
             </main>
       )
 }

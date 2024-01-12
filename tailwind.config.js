@@ -3,6 +3,13 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      colors: {
+        "pink": "#F25EA3",
+        "purple": "#CE49F2",
+        "blue": "#35AAF2",
+        "gray": "#D2D6D9",
+        "orange": "#F2921D",
+      },
       animation: {
         fadeIn: "fadeIn 500ms ease-in-out",
         fadeOut: "fadeOut 1s ease-in-out",
@@ -23,7 +30,7 @@ export default {
           "100%": {
             opacity: 0,
           },
-        },
+        }
       },
     },
   },

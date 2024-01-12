@@ -1,6 +1,9 @@
 import { useContext } from "react"
 import { BioContext, DiagnosisContext, ViewContext } from "../provider"
 import { Gender } from "../model/bio";
+import bg3 from "../assets/components/bg3.svg";
+import Illustration2 from "../assets/components/ilus2.svg";
+import Slider from "../components/Slider";
 
 function KlasifikasiDepresi(level: number) {
       if (level <= 4) {
@@ -80,74 +83,34 @@ export default function DiagnosisPage() {
             setView("bio");
       }
       return (
-            <main className="h-screen p-8 flex flex-col gap-4">
-                  <h1 className="text-center font-bold text-xl">Hasil Tes</h1>
-                  <table className="w-full">
-                        <tr>
-                              <td className="w-1/3 font-bold border text-start p-1 capitalize">Nama</td>
-                              <td className="border text-center p-1 capitalize">{bio.nama}</td>
-                        </tr>
-                        <tr>
-                              <td className="font-bold border text-start p-1 capitalize">Umur</td>
-                              <td className="border text-center p-1 capitalize">{bio.umur} tahun</td>
-                        </tr>
-                        <tr>
-                              <td className="font-bold border text-start p-1 capitalize">Jenis Kelamin</td>
-                              <td className="border text-center p-1 capitalize">{bio.gender === Gender.Male ? "Laki-laki" : "Perempuan"}</td>
-                        </tr>
-                  </table>
-                  <table className="w-full">
-                        <tr>
-                              <th className="w-1/3 border text-start p-1 capitalize">Kondisi</th>
-                              <th className="border text-center p-1 capitalize">Klasifikasi</th>
-                        </tr>
-                        <tr>
-                              <td className="border text-start p-1 capitalize">Depresi</td>
-                              <td className="border text-center p-1 capitalize">{KlasifikasiDepresi(diagnosis.depresi)}</td>
-                        </tr>
-                        <tr>
-                              <td className="border text-start p-1 capitalize">Kecemasan</td>
-                              <td className="border text-center p-1 capitalize">{KlasifikasiKecemasan(diagnosis.kecemasan)}</td>
-                        </tr>
-                        <tr>
-                              <td className="border text-start p-1 capitalize">Stress</td>
-                              <td className="border text-center p-1 capitalize">{KlasifikasiStress(diagnosis.stress)}</td>
-                        </tr>
-                  </table>
-                  <table className="w-full">
-                        <tr className="border text-center">
-                              <th>
-                                    Depresi
-                              </th>
-                        </tr>
-                        <tr className="border text-center">
-                              <td className="p-1">
-                                    {Intervensi(KlasifikasiDepresi(diagnosis.depresi))}
-                              </td>
-                        </tr>
-                        <tr className="border text-center">
-                              <th>
-                                    Kecemasan
-                              </th>
-                        </tr>
-                        <tr className="border text-center">
-                              <td className="p-1">
-                                    {Intervensi(KlasifikasiKecemasan(diagnosis.kecemasan))}
-                              </td>
-                        </tr>
-                        <tr className="border text-center">
-                              <th>
-                                    Stress
-                              </th>
-                        </tr>
-                        <tr className="border text-center">
-                              <td className="p-1">
-                                    {Intervensi(KlasifikasiStress(diagnosis.stress))}
-                              </td>
-                        </tr>
-                  </table>
-                  <button type="button" className="button" onClick={tesUlang}>Tes ulang &raquo;</button>
-                  <button type="button" className="button" onClick={() => setView("video")}>Lihat rekomendasi video</button>
+            <main>
+                  <img src={bg3} alt="background 3" className="absolute left-0 w-screen h-screen bottom-0 object-cover z-0" />
+                  <section className="min-h-screen p-8 flex flex-col items-center gap-4">
+                        <img src={Illustration2} alt="illustration 2" className="w-1/2 z-10" />
+                        <div className="flex flex-col items-center gap-1 z-10">
+                              <h1 className="font-semibold text-xl">{bio.nama}</h1>
+                              <h2>{bio.umur} Tahun</h2>
+                              <h2>{bio.gender === Gender.Male ? "Laki-laki" : "Perempuan"}</h2>
+                        </div>
+                        <div className="flex flex-col items-center gap-1 z-10">
+                              <div className="flex flex-col items-center">
+                                    <h1 className="font-semibold">Depresi ({KlasifikasiDepresi(diagnosis.depresi)})</h1>
+                                    <p className="text-center">{Intervensi(KlasifikasiDepresi(diagnosis.depresi))}</p>
+                              </div>
+                              <div className="flex flex-col items-center">
+                                    <h1 className="font-semibold">Kecemasan ({KlasifikasiKecemasan(diagnosis.kecemasan)})</h1>
+                                    <p className="text-center">{Intervensi(KlasifikasiKecemasan(diagnosis.kecemasan))}</p>
+                              </div>
+                              <div className="flex flex-col items-center">
+                                    <h1 className="font-semibold">Stress ({KlasifikasiStress(diagnosis.stress)})</h1>
+                                    <p className="text-center">{Intervensi(KlasifikasiStress(diagnosis.stress))}</p>
+                              </div>
+                        </div>
+                  </section>
+                  <Slider>
+                        <button type="button" className="button" onClick={tesUlang}>Tes ulang</button>
+                        <button type="button" className="button" onClick={() => setView("video")}>Lihat rekomendasi video</button>
+                  </Slider>
             </main>
       )
 }

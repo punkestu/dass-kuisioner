@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 .input-box {
-      @apply !outline-none px-2 py-1 border-b focus:border-b-2 focus:border-blue-500 focus:ring-0 border-slate-400 bg-slate-50;
+      @apply !outline-none px-2 py-1 border-b focus:border-b-2 focus:border-pink focus:ring-0 border-slate-400 bg-slate-50;
 }
 
 .button {
-      @apply px-4 py-2 bg-blue-600 text-white rounded-lg;
+      @apply px-4 py-2 bg-pink text-white rounded-lg;
 }

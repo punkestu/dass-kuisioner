@@ -7,6 +7,7 @@ import Diagnosis from "./model/diagnosis";
 import DiagnosisPage from "./page/Diagnosis";
 import SplashPage from "./page/Splash";
 import VideoPage from "./page/Video";
+import WelcomePage from "./page/Welcome";
 
 function App() {
   const [bio, setBio] = useState<Bio>({
@@ -15,7 +16,7 @@ function App() {
     gender: Gender.Male
   });
   const [diagnosis, setDiagnosis] = useState<Diagnosis>({ depresi: 0, kecemasan: 0, stress: 0 });
-  const [view, setView] = useState("bio");
+  const [view, setView] = useState("welcome");
 
   return (
     <BioContext.Provider value={[bio, setBio]}>
@@ -31,6 +32,8 @@ function App() {
 
 function SwitchView(opt: { view: string }) {
   switch (opt.view) {
+    case "welcome":
+      return <WelcomePage />
     case "bio":
       return <BioPage />
     case "soal":

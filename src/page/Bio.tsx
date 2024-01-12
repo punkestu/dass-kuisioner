@@ -2,7 +2,8 @@ import { useContext } from "react";
 import { BioContext, ViewContext } from "../provider";
 import { Gender } from "../model/bio";
 import Swal from "../provider/swal";
-import Illustration1 from "../assets/illustration1.png";
+import Illustration1 from "../assets/components/ilus1.svg";
+import bg2 from "../assets/components/bg2.svg";
 
 export default function BioPage() {
       const [bio, setBio] = useContext(BioContext);
@@ -31,9 +32,10 @@ export default function BioPage() {
             }
       }
       return (
-            <main className="h-screen flex flex-col items-center justify-center">
-                  <img src={Illustration1} alt="ilustration1" className="w-1/2 mb-3" />
-                  <form className="w-2/3 flex flex-col">
+            <main className="bg-5 h-screen flex flex-col items-center justify-center">
+                  <img src={bg2} alt="" className="absolute w-screen h-screen bottom-0 object-cover z-0" />
+                  <img src={Illustration1} alt="ilustration1" className="w-1/2 mb-3 z-10" />
+                  <form className="w-2/3 flex flex-col z-10">
                         <h1 className="font-bold text-xl mb-4 text-center">Biodata</h1>
                         <label className="font-medium mb-1" htmlFor="nama">Nama</label>
                         <input className="input-box mb-4 text-center" name="nama" type="text" value={bio.nama} onChange={e => changeNama(e.target.value)} placeholder="Inputkan nama..." />
